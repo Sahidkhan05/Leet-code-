@@ -1,0 +1,28 @@
+🚀 LinkedIn Post for Day 1 – LeetCode C++ Challenge
+📢 Day 1/30 – LeetCode C++ Challenge
+🔹 Problem: Two Sum (Easy)
+🔹 Approach Used: Brute Force (O(N²))
+
+💡 Problem Explanation:
+Given an array of numbers and a target sum, find two indices where nums[i] + nums[j] = target.
+
+📝 Solution (Brute Force)
+
+
+class Solution {
+public:
+    vector<int> twoSum(vector<int>& nums, int target) {
+        for(int i = 0; i < nums.size(); i++) {
+            for(int j = i + 1; j < nums.size(); j++) { 
+                if(nums[i] + nums[j] == target) {  
+                    return {i, j}; 
+                }
+            }
+        }
+        return {};
+    }
+};
+
+
+📌 Time Complexity: O(N²) due to nested loops.
+📌 Space Complexity: O(1), as no extra space is used.
