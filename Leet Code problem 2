@@ -1,0 +1,23 @@
+🚀 Day 2/30 – LeetCode C++ Challenge
+🔹 Problem: Reverse String (Easy)
+🔹 Approach Used: Two Pointers
+
+💡 Problem Explanation:
+Given a string (or character array), reverse it in-place using minimal extra space.
+
+📝 Solution Using Two Pointers
+cpp
+Copy
+Edit
+void reverseString(vector<char>& s) {
+    int left = 0, right = s.size() - 1;
+    while (left < right) {
+        swap(s[left], s[right]);
+        left++;
+        right--;
+    }
+}
+✅ Efficient Approach:
+✔ Swaps first & last characters, moves pointers inward.
+✔ Time Complexity: O(N)
+✔ Space Complexity: O(1) (In-place reversal).
