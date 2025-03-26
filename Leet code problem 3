@@ -1,0 +1,29 @@
+🚀 Day 3/30 – LeetCode C++ Challenge
+🔹 Problem: Valid Anagram (Easy)
+🔹 Approach Used: Sorting, HashMap
+
+💡 Problem Explanation:
+Given two strings s and t, return true if t is an anagram of s, and false otherwise.
+An anagram is a word formed by rearranging the letters of another word, using all the original letters exactly once.
+
+📝 Solution 1: Sorting Approach (O(n log n))
+
+#include <iostream>
+#include <algorithm>
+using namespace std;
+
+bool isAnagram(string s, string t) {
+    if (s.length() != t.length()) return false;
+    sort(s.begin(), s.end());
+    sort(t.begin(), t.end());
+    return s == t;
+}
+
+int main() {
+    cout << isAnagram("anagram", "nagaram") << endl; // Output: True
+    cout << isAnagram("rat", "car") << endl;         // Output: False
+    return 0;
+}
+✅ Sorting both strings and comparing them
+✅ Time Complexity: O(n log n)
+✅ Space Complexity: O(1)
