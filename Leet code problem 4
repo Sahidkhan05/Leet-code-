@@ -1,0 +1,36 @@
+🚀 Day 4/30 – LeetCode C++ Challenge
+ 🔹 Best Time to Buy and Sell Stock (Easy)
+ 🔹 Approach Used: Greedy
+💡 Problem Explanation:
+You are given an array prices where prices[i] represents the stock price on the ith day. The goal is to maximize profit by choosing a single day to buy and a later day to sell.
+Return the maximum profit possible. If no profit can be made, return 0.
+
+#include <vector>
+#include <iostream>
+using namespace std;
+
+int maxProfit(vector<int>& prices) {
+    int minPrice = INT_MAX, maxProfit = 0;
+    for (int price : prices) {
+        minPrice = min(minPrice, price);  // Update minimum price
+        maxProfit = max(maxProfit, price - minPrice);  // Update max profit
+    }
+    return maxProfit;
+}
+
+int main() {
+    vector<int> prices = {7,1,5,3,6,4};
+    cout << "Max Profit: " << maxProfit(prices) << endl;
+    return 0;
+}
+🔹 Time Complexity Analysis
+O(n): We iterate through the array only once.
+
+O(1) Space Complexity: We use only two variables (minPrice and maxProfit).
+
+🔹 Why is this approach optimal?
+✅ Single Pass Solution - No nested loops.
+✅ Greedy Strategy - Always takes the best decision at each step.
+✅ Efficient for Large Inputs - Handles large datasets efficiently.
+
+Let me know if you need any modifications! 🚀😃
