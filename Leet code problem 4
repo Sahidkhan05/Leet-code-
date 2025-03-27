@@ -23,6 +23,8 @@ int main() {
     cout << "Max Profit: " << maxProfit(prices) << endl;
     return 0;
 }
+
+
 🔹 Time Complexity Analysis
 O(n): We iterate through the array only once.
 
@@ -33,4 +35,4 @@ O(1) Space Complexity: We use only two variables (minPrice and maxProfit).
 ✅ Greedy Strategy - Always takes the best decision at each step.
 ✅ Efficient for Large Inputs - Handles large datasets efficiently.
 
-Let me know if you need any modifications! 🚀😃
+
