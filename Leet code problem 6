@@ -1,0 +1,22 @@
+🚀 Day 6/30 – LeetCode C++ Challenge
+🔹 Problem: Rotate Array (Medium)
+🔹 Approach Used: Extra Space (Using Temp Array)
+🔁 Concepts: Array Rotation, Modulo, Vectors
+
+💡 Problem Brief:
+Given an integer array nums, rotate the array to the right by k steps, where k is non-negative.
+
+✅ Approach Explanation: We create a temporary array and use (i + k) % n to place each element in its new position.
+
+
+void rotate(vector<int>& nums, int k) {
+    int n = nums.size();
+    vector<int> temp(n);
+    for (int i = 0; i < n; i++) {
+        temp[(i + k) % n] = nums[i];
+    }
+    nums = temp;
+}
+
+
+==> This method ensures all elements are rotated correctly with time complexity O(n) and space complexity O(n).
