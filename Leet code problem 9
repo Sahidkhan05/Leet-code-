@@ -1,0 +1,29 @@
+🚀 Day 9/30 – LeetCode C++ Challenge
+🔹 Problem: [Implement strStr() (Easy)]
+🔹 Approach Used: Brute Force using substr()
+🔁 Concepts: Strings, Substring Matching, Sliding Window Logic
+
+💡 Problem Brief:
+Implement the strStr() function.
+Given two strings haystack and needle, return the index of the first occurrence of needle in haystack, or -1 if needle is not part of haystack.
+
+✅ Approach Explanation:
+We use a sliding window of size m (needle length) and iterate through the haystack to compare each substring.
+
+
+int strStr(string haystack, string needle) {
+    int n = haystack.length();
+    int m = needle.length();
+
+    for (int i = 0; i <= n - m; i++) {
+        string temp = haystack.substr(i, m);
+        if (temp == needle) return i;
+    }
+    return -1;
+}
+
+🧠 Loop runs till n - m to prevent out-of-bound access.
+
+📦 Time Complexity: O(n * m) (in worst case, for each index compare m chars)
+
+🛠 Space Complexity: O(m) for substring creation.
