@@ -1,0 +1,36 @@
+🚀 Day 11/30 – LeetCode C++ Challenge
+🔹 Problem: Move Zeroes (Easy)
+🔹 Problem No.: #283
+🔹 Approach Used: Two Pointer Method
+🔁 Concepts: Array Traversal, In-Place Update, Optimization
+
+💡 Problem Brief:
+Given an array, move all 0’s to the end while maintaining the relative order of non-zero elements.
+
+✅ Approach Explanation:
+We use two pointers —
+
+One (j) to iterate over the array
+
+Another (i) to mark the position of the next non-zero element
+
+We move all non-zero elements to the front and then fill the rest with zeroes.
+
+🔸 Time Complexity: O(n)
+🔸 Space Complexity: O(1)
+
+👨‍💻 C++ Code Snippet:
+
+void moveZeroes(vector<int>& nums) {
+    int i = 0;
+    for (int j = 0; j < nums.size(); j++) {
+        if (nums[j] != 0) {
+            nums[i] = nums[j];
+            i++;
+        }
+    }
+    while (i < nums.size()) {
+        nums[i] = 0;
+        i++;
+    }
+}
