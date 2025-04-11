@@ -1,0 +1,42 @@
+🚀 Day 12/30 – LeetCode C++ Challenge
+🔹 Problem: Product of Array Except Self (Medium)
+🔹 Problem No.: #238
+🔹 Approach Used: Prefix & Suffix Product Arrays
+🔁 Concepts: Arrays, Prefix-Suffix Logic, Optimization without Division
+
+💡 Problem Brief:
+Given an array nums, return an array answer such that answer[i] is equal to the product of all the elements of nums except nums[i], without using division.
+
+✅ Approach Explanation:
+
+Create two arrays: prefix and suffix, initialized with 1
+
+prefix[i] = product of all elements before index i
+
+suffix[i] = product of all elements after index i
+
+Final result at i = prefix[i] * suffix[i]
+
+🔸 Time Complexity: O(n)
+🔸 Space Complexity: O(n)
+
+Code:
+
+vector<int> productExceptSelf(vector<int>& nums) {
+    int n = nums.size();
+    vector<int> prefix(n, 1), suffix(n, 1), ans(n);
+
+    for (int i = 1; i < n; i++) {
+        prefix[i] = prefix[i - 1] * nums[i - 1];
+    }
+
+    for (int i = n - 2; i >= 0; i--) {
+        suffix[i] = suffix[i + 1] * nums[i + 1];
+    }
+
+    for (int i = 0; i < n; i++) {
+        ans[i] = prefix[i] * suffix[i];
+    }
+
+    return ans;
+}
