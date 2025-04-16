@@ -1,0 +1,39 @@
+
+🚀 Day 14/30 – LeetCode C++ Challenge
+🔹 Problem: Next Greater Element I (Easy)
+🔹 Problem No.: #496
+🔹 Approach Used: Stack & HashMap
+🔁 Concepts: Next Greater Element, Stack, HashMap, Reverse Traversal
+
+💡 Problem Brief:
+Given two arrays nums1 and nums2, return an array of the next greater element for each element in nums1 from nums2. If no next greater element exists, return -1.
+
+✅ Approach Explanation:
+We traverse nums2 in reverse order using a stack. We keep track of the elements that have no smaller next greater elements in the stack.
+We then map each element in nums2 to its next greater element and, finally, use this map to populate the result for nums1.
+
+🔸 Time Complexity: O(n + m)
+🔸 Space Complexity: O(n)
+
+Code:
+
+vector<int> nextGreaterElement(vector<int>& nums1, vector<int>& nums2) {
+    unordered_map<int, int> mp;
+    stack<int> st;
+
+    for (int i = nums2.size() - 1; i >= 0; i--) {
+        int curr = nums2[i];
+        while (!st.empty() && st.top() <= curr) {
+            st.pop();
+        }
+        mp[curr] = st.empty() ? -1 : st.top();
+        st.push(curr);
+    }
+
+    vector<int> result;
+    for (int num : nums1) {
+        result.push_back(mp[num]);
+    }
+
+    return result;
+}
