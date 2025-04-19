@@ -1,0 +1,43 @@
+
+🚀 Day 16/30 – LeetCode C++ Challenge
+🔹 Problem: First Unique Character in a String
+🔹 Problem No.: #387
+🔹 Approach: Frequency Array using Vector
+🔁 Concepts: Strings, Character Frequency, First Occurrence
+
+💡 Problem Statement:
+Given a string s, find the first non-repeating character and return its index. If it doesn't exist, return -1.
+
+✅ My Approach:
+
+Used a vector of size 256 to store the frequency of each character.
+
+First loop: Count frequencies of all characters.
+
+Second loop: Return the index of the first character with frequency 1.
+
+If no such character is found, return -1.
+
+⚙️ Time Complexity: O(n)
+💾 Space Complexity: O(1) – constant size frequency vector
+
+✨ Code Snippet (C++):
+
+cpp
+Copy
+Edit
+class Solution {
+public:
+    int firstUniqChar(string s) {
+        vector<int> freq(256, 0);
+
+        for(char c : s)
+            freq[c]++;
+
+        for(int i = 0; i < s.length(); i++)
+            if(freq[s[i]] == 1)
+                return i;
+
+        return -1;
+    }
+};
